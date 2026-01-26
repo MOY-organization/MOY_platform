@@ -35,5 +35,29 @@
     "userType": "نوع المستفيد",
     "individual": "أفراد",
     "organization": "مؤسسات"
+  },
+  "profile": {
+    "personal": "الملف الشخصي",
+    "individual": {
+      "account": "حساب فردي",
+      "name": "الاسم الرباعي",
+      "idNumber": "رقم الهوية",
+      "email": "البريد الالكتروني",
+      "phone": "رقم الهاتف",
+      "birth": "تاريخ الميلاد",
+      "civil": "رقم القيد المدني",
+      "membership": "هل لديك عضوية؟",
+      "membershipNumber": "رقم العضوية",
+      "gender": "الجنس",
+      "socialStatus": "الحالة الاجتماعية",
+      "residenceValidity": "صلاحية الإقامة",
+      "ResidenceDetails": "بيانات الإقامة",
+      "PassportDetails": "بيانات جواز السفر",
+      "edit": "تعديل البيانات",
+      "service": "تقديم خدمة"
+    },
+    "organization": {
+      "account": "حساب مؤسسي"
+    }
   }
 }

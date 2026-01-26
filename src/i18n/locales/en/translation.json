@@ -35,5 +35,29 @@
     "userType": "Beneficiary type",
     "individual": "Individuals",
     "organization": "Organizations"
+  },
+  "profile": {
+    "personal": "Personal Profile",
+    "individual": {
+      "account": "Individual Account",
+      "name": "full name",
+      "idNumber": "ID Number",
+      "email": "Email",
+      "phone": "Phone number",
+      "birth": "Date of birth",
+      "civil": "Civil registration number",
+      "membership": "Do you have a membership?",
+      "membershipNumber": "Membership number",
+      "gender": "Gender",
+      "socialStatus": "Social status",
+      "residenceValidity": "Residence permit validity",
+      "ResidenceDetails": "Residence Details",
+      "PassportDetails": "Passport Details",
+      "edit": "Edit Information",
+      "service": "View Services"
+    },
+    "organization": {
+      "account": "organization account"
+    }
   }
 }

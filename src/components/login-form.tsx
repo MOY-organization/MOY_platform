@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { LogIn } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type UserType = "individual" | "organization";
 
@@ -20,6 +21,12 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   const { t } = useTranslation();
   const [userType, setUserType] = useState<UserType>("individual");
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    if (userType === "individual") navigate("/person-profile");
+    else if (userType === "organization") navigate("/organization-profile");
+  };
 
   return (
     <div
@@ -27,7 +34,7 @@ export function LoginForm({
       {...props}
     >
       {/* HEADER */}
-      <div className="bg-[#2563eb] text-white text-center px-6 pt-10 pb-8">
+      <div className="bg-primary text-white text-center px-6 pt-10 pb-8">
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/20">
           <LogIn className="h-6 w-6" />
         </div>
@@ -113,7 +120,9 @@ export function LoginForm({
 
               {/* SUBMIT */}
               <Field>
-                <Button className="w-full">{t("auth.login")}</Button>
+                <Button className="w-full" onClick={handleSubmit}>
+                  {t("auth.login")}
+                </Button>
 
                 <FieldDescription className="text-center">
                   {t("auth.noaccount")}{" "}

@@ -7,6 +7,7 @@ import PersonProfile from "@/pages/profile/person-profile";
 import OrganizationProfile from "@/pages/profile/organization-profile";
 import ReservationPage from "@/pages/reservation/reservation";
 import ServicesPage from "@/pages/services";
+import ConfirmationMessage from "@/pages/confirmation-message";
 
 const routes = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const routes = createBrowserRouter([
   {
     path: "/services",
     element: <ServicesPage />,
+  },
+  {
+    path: "/confirmation-message",
+    element: <ConfirmationMessage />,
   },
   {
     path: "*",

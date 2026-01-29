@@ -7,6 +7,7 @@ import { User } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Textarea } from "../ui/textarea";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function OrganizationForm({
   className,
@@ -14,6 +15,15 @@ export default function OrganizationForm({
 }: React.ComponentProps<"div">) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [edit, setEdit] = useState(false);
+
+  const handleEdit = () => {
+    setEdit(true);
+  };
+
+  const handleEditFinish = () => {
+    setEdit(false);
+  };
 
   const handeleServiceBtn = () => {
     navigate("/services");
@@ -136,15 +146,23 @@ export default function OrganizationForm({
         </CardContent>
         {/* Buttons */}
         <CardFooter className="flex gap-5">
-          <Button className="px-5 sm:px-10">
-            {t("profile.individual.edit")}
-          </Button>
-          <Button
-            className="px-5 sm:px-10 bg-green-700 hover:bg-green-600"
-            onClick={handeleServiceBtn}
-          >
-            {t("profile.individual.service")}
-          </Button>
+          {edit ? (
+            <Button className="px-5 sm:px-10" onClick={handleEditFinish}>
+              {t("profile.organization.finish")}
+            </Button>
+          ) : (
+            <>
+              <Button className="px-5 sm:px-10" onClick={handleEdit}>
+                {t("profile.organization.edit")}
+              </Button>
+              <Button
+                className="px-5 sm:px-10 bg-green-700 hover:bg-green-600"
+                onClick={handeleServiceBtn}
+              >
+                {t("profile.organization.service")}
+              </Button>
+            </>
+          )}
         </CardFooter>
       </Card>
     </div>

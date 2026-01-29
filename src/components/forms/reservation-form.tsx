@@ -89,8 +89,10 @@ export default function ReservationForm({
   const [groupLeader, setGroupLeader] = useState("");
   const [participantsInfo, setParticipantsInfo] = useState("");
 
-  const showFacilitySection = serviceType === "accommodation";
-  const showActivitySection = serviceType === "activity";
+  const showFacilitySection =
+    serviceType === "accommodation" || serviceType === "both";
+  const showActivitySection =
+    serviceType === "activity" || serviceType === "both";
   const showCapacity = showFacilitySection && facility !== "";
 
   const serviceOptions: Option[] = useMemo(
@@ -100,6 +102,7 @@ export default function ReservationForm({
         label: t("reservation.options.service.accommodation"),
       },
       { value: "activity", label: t("reservation.options.service.activity") },
+      { value: "both", label: t("reservation.options.service.both") },
     ],
     [t],
   );
@@ -222,7 +225,8 @@ export default function ReservationForm({
                 {/* Youth House */}
                 <Field>
                   <FieldLabel htmlFor="house">
-                    {t("reservation.fields.youthHouse")}
+                    {t("reservation.fields.youthHouse")}{" "}
+                    <span className="text-red-500">*</span>
                   </FieldLabel>
                   <Select
                     id="house"
@@ -236,7 +240,8 @@ export default function ReservationForm({
                 {/* Service Type */}
                 <Field>
                   <FieldLabel htmlFor="serviceType">
-                    {t("reservation.fields.serviceType")}
+                    {t("reservation.fields.serviceType")}{" "}
+                    <span className="text-red-500">*</span>
                   </FieldLabel>
                   <Select
                     id="serviceType"
@@ -258,7 +263,8 @@ export default function ReservationForm({
               <FieldGroup className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Field>
                   <FieldLabel htmlFor="fromDate">
-                    {t("reservation.fields.fromDate")}
+                    {t("reservation.fields.fromDate")}{" "}
+                    <span className="text-red-500">*</span>
                   </FieldLabel>
                   <Input
                     id="fromDate"
@@ -271,7 +277,8 @@ export default function ReservationForm({
 
                 <Field>
                   <FieldLabel htmlFor="toDate">
-                    {t("reservation.fields.toDate")}
+                    {t("reservation.fields.toDate")}{" "}
+                    <span className="text-red-500">*</span>
                   </FieldLabel>
                   <Input
                     id="toDate"
@@ -299,7 +306,8 @@ export default function ReservationForm({
               <FieldGroup>
                 <Field>
                   <FieldLabel htmlFor="beneficiaries">
-                    {t("reservation.fields.beneficiaries")}
+                    {t("reservation.fields.beneficiaries")}{" "}
+                    <span className="text-red-500">*</span>
                   </FieldLabel>
                   <Input
                     id="beneficiaries"
@@ -312,11 +320,10 @@ export default function ReservationForm({
                 </Field>
               </FieldGroup>
 
-              <hr className="border-border" />
-
               {/* SECTION: Facility */}
               {showFacilitySection && (
                 <>
+                  <hr className="border-border" />
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <Users className="h-5 w-5 text-primary" />
@@ -329,7 +336,8 @@ export default function ReservationForm({
                   <FieldGroup className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Field>
                       <FieldLabel htmlFor="facility">
-                        {t("reservation.fields.facilityType")}
+                        {t("reservation.fields.facilityType")}{" "}
+                        <span className="text-red-500">*</span>
                       </FieldLabel>
                       <Select
                         id="facility"
@@ -363,7 +371,8 @@ export default function ReservationForm({
                     <FieldGroup>
                       <Field>
                         <FieldLabel htmlFor="requiredCount">
-                          {activeCountLabel}
+                          {activeCountLabel}{" "}
+                          <span className="text-red-500">*</span>
                         </FieldLabel>
                         <Input
                           id="requiredCount"
@@ -382,6 +391,7 @@ export default function ReservationForm({
               {/* SECTION: Activity */}
               {showActivitySection && (
                 <>
+                  <hr className="border-border" />
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <CalendarDays className="h-5 w-5 text-primary" />
@@ -394,7 +404,8 @@ export default function ReservationForm({
                   <FieldGroup>
                     <Field>
                       <FieldLabel htmlFor="activityPlan">
-                        {t("reservation.fields.activityPlan")}
+                        {t("reservation.fields.activityPlan")}{" "}
+                        <span className="text-red-500">*</span>
                       </FieldLabel>
                       <Textarea
                         id="activityPlan"
@@ -408,7 +419,8 @@ export default function ReservationForm({
                   <FieldGroup>
                     <Field>
                       <FieldLabel htmlFor="groupLeader">
-                        {t("reservation.fields.groupLeader")}
+                        {t("reservation.fields.groupLeader")}{" "}
+                        <span className="text-red-500">*</span>
                       </FieldLabel>
                       <Input
                         id="groupLeader"
@@ -423,7 +435,8 @@ export default function ReservationForm({
                   <FieldGroup>
                     <Field>
                       <FieldLabel htmlFor="participantsInfo">
-                        {t("reservation.fields.participantsInfo")}
+                        {t("reservation.fields.participantsInfo")}{" "}
+                        <span className="text-red-500">*</span>
                       </FieldLabel>
                       <Textarea
                         id="participantsInfo"
@@ -439,19 +452,21 @@ export default function ReservationForm({
               )}
 
               {/* Buttons */}
-              <div className="flex flex-wrap items-center gap-5">
-                <Button type="submit" className="flex-1 py-6 text-base">
-                  {t("reservation.actions.submit")}
-                </Button>
-                <Button
-                  type="button"
-                  variant="secondary"
-                  className="px-10"
-                  onClick={() => navigate(-1)}
-                >
-                  {t("common.cancel")}
-                </Button>
-              </div>
+              <Field>
+                <div className="flex flex-wrap items-center gap-5">
+                  <Button type="submit" className="flex-1 py-6 text-base">
+                    {t("reservation.actions.submit")}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    className="px-10"
+                    onClick={() => navigate(-1)}
+                  >
+                    {t("common.cancel")}
+                  </Button>
+                </div>
+              </Field>
             </FieldGroup>
           </form>
         </CardContent>

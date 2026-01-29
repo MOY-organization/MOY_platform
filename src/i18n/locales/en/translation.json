@@ -3,7 +3,8 @@
   "nav": {
     "home": "Home",
     "about": "About us",
-    "contact": "Contact"
+    "contact": "Contact",
+    "Requests": "My applications"
   },
   "footer": {
     "name": "Footer",
@@ -15,12 +16,22 @@
     "orgNationalId": "Organization national ID",
     "orgNationalIdPlaceholder": "Enter organization national ID",
     "passwordPlaceholder": "Enter password",
-    "signup": "Sign up",
     "login": "Login",
     "password": "Password",
     "noaccount": "Don't have an account?",
+    "account": "Already have an account?",
     "email": "Email",
-    "forgotPassword": "Forgot password?"
+    "emailPlaceholder": "Enter your email",
+    "forgotPassword": "Forgot password?",
+    "signup": "Create Account",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter your password",
+    "phoneNumber": "Phone Number",
+    "phoneNumberPlaceholder": "Enter your phone number",
+    "organizationName": "Organization Name",
+    "organizationNamePlaceholder": "Enter your organization name"
   },
   "buttons": {
     "save": "Save",
@@ -60,6 +71,7 @@
       "ResidenceDetails": "Residence Details",
       "PassportDetails": "Passport Details",
       "edit": "Edit Information",
+      "finish": "Finish Editing",
       "service": "View Services"
     },
     "organization": {
@@ -69,7 +81,10 @@
       "capital": "Company Capital",
       "title": "The Title",
       "mail": "Official mail",
-      "signature": "Name of the authorized signatory "
+      "signature": "Name of the authorized signatory ",
+      "edit": "Edit Information",
+      "finish": "Finish Editing",
+      "service": "View Services"
     }
   },
   "reservation": {
@@ -81,21 +96,21 @@
       "activity": "Activity Details"
     },
     "fields": {
-      "serviceType": "Service type *",
-      "youthHouse": "Youth house *",
-      "fromDate": "From date *",
-      "toDate": "To date *",
+      "serviceType": "Service type",
+      "youthHouse": "Youth house",
+      "fromDate": "From date",
+      "toDate": "To date",
       "durationDays": "Duration (days)",
-      "beneficiaries": "Number of beneficiaries *",
-      "facilityType": "Facility *",
+      "beneficiaries": "Number of companions",
+      "facilityType": "Facility",
       "availableCapacity": "Available capacity",
-      "requiredRooms": "Required rooms *",
-      "requiredTents": "Required tents *",
-      "requiredSuites": "Required suites *",
-      "requiredChalets": "Required chalets *",
-      "activityPlan": "Activity plan *",
-      "groupLeader": "Group leader *",
-      "participantsInfo": "Participants classification *"
+      "requiredRooms": "Required rooms",
+      "requiredTents": "Required tents",
+      "requiredSuites": "Required suites",
+      "requiredChalets": "Required chalets",
+      "activityPlan": "Activity plan",
+      "groupLeader": "Group leader",
+      "participantsInfo": "Participants classification"
     },
     "placeholders": {
       "select": "Select...",
@@ -109,7 +124,8 @@
     "options": {
       "service": {
         "accommodation": "Accommodation",
-        "activity": "Activity"
+        "activity": "Activity",
+        "both": "Accommodation & Activity"
       },
       "house": {
         "petraWadiMusa": "Petra Youth House - Petra - Wadi Musa",
@@ -134,6 +150,14 @@
       "youthHouse": {
         "title": "Youth House Booking & Rental Service",
         "desc": "Book accommodation at a youth house or rent a facility to host activities and events"
+      },
+      "camps": {
+        "title": "Youth Camps Booking & Rental Service",
+        "desc": "Book accommodation at a youth camp or rent a facility to host activities and events"
+      },
+      "sportsComplex": {
+        "title": "Sports Complex Booking & Rental Service",
+        "desc": "Book facilities at a sports complex for training, matches, or events"
       },
       "other": {
         "title": "Other Services",

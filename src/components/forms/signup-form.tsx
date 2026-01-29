@@ -15,7 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 type UserType = "individual" | "organization";
 
-export function LoginForm({
+export default function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
@@ -80,11 +80,11 @@ export function LoginForm({
                 </div>
               </Field>
 
-              {/* CONDITIONAL FIELDS */}
+              {/* CONDITIONAL ID */}
               {userType === "individual" ? (
                 <Field>
                   <FieldLabel htmlFor="nationalId">
-                    {t("auth.nationalId")}{" "}
+                    {t("auth.nationalId")}
                     <span className="text-red-500">*</span>
                   </FieldLabel>
                   <Input
@@ -109,30 +109,102 @@ export function LoginForm({
                 </>
               )}
 
-              {/* PASSWORD */}
-              <Field>
-                <FieldLabel htmlFor="password">
-                  {t("auth.password")}
-                  <span className="text-red-500">*</span>
-                </FieldLabel>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder={t("auth.passwordPlaceholder")}
-                  required
-                />
-              </Field>
+              {/* CONDITIONAL name */}
+              {userType === "individual" ? (
+                <Field>
+                  <FieldLabel htmlFor="fullName">
+                    {t("auth.fullName")}
+                    <span className="text-red-500">*</span>
+                  </FieldLabel>
+                  <Input
+                    id="fullName"
+                    placeholder={t("auth.fullNamePlaceholder")}
+                    required
+                  />
+                </Field>
+              ) : (
+                <>
+                  <Field>
+                    <FieldLabel htmlFor="orgNationalName">
+                      {t("auth.organizationName")}
+                      <span className="text-red-500">*</span>
+                    </FieldLabel>
+                    <Input
+                      id="orgNationalName"
+                      placeholder={t("auth.organizationNamePlaceholder")}
+                      required
+                    />
+                  </Field>
+                </>
+              )}
+
+              <FieldGroup className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Email */}
+                <Field>
+                  <FieldLabel htmlFor="email">
+                    {t("auth.email")}
+                    <span className="text-red-500">*</span>
+                  </FieldLabel>
+                  <Input
+                    id="email"
+                    placeholder={t("auth.emailPlaceholder")}
+                    required
+                  />
+                </Field>
+
+                {/* PhoneNumber */}
+                <Field>
+                  <FieldLabel htmlFor="phoneNumber">
+                    {t("auth.phoneNumber")}{" "}
+                    <span className="text-red-500">*</span>
+                  </FieldLabel>
+                  <Input
+                    id="phoneNumber"
+                    placeholder={t("auth.phoneNumberPlaceholder")}
+                    required
+                  />
+                </Field>
+              </FieldGroup>
+
+              <FieldGroup className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* PASSWORD */}
+                <Field>
+                  <FieldLabel htmlFor="password">
+                    {t("auth.password")} <span className="text-red-500">*</span>
+                  </FieldLabel>
+                  <Input
+                    id="password"
+                    type="password"
+                    placeholder={t("auth.passwordPlaceholder")}
+                    required
+                  />
+                </Field>
+
+                {/* Confirm PASSWORD */}
+                <Field>
+                  <FieldLabel htmlFor="confirmPassword">
+                    {t("auth.confirmPassword")}{" "}
+                    <span className="text-red-500">*</span>
+                  </FieldLabel>
+                  <Input
+                    id="confirmPassword"
+                    type="password"
+                    placeholder={t("auth.confirmPasswordPlaceholder")}
+                    required
+                  />
+                </Field>
+              </FieldGroup>
 
               {/* SUBMIT */}
               <Field>
                 <Button className="w-full" onClick={handleSubmit}>
-                  {t("auth.login")}
+                  {t("auth.signup")}
                 </Button>
 
                 <FieldDescription className="text-center">
-                  {t("auth.noaccount")}{" "}
-                  <Link to="/signup" className="text-primary hover:underline">
-                    {t("auth.signup")}
+                  {t("auth.account")}{" "}
+                  <Link to="/login" className="text-primary hover:underline">
+                    {t("auth.login")}
                   </Link>
                 </FieldDescription>
               </Field>

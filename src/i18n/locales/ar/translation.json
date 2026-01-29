@@ -3,7 +3,8 @@
   "nav": {
     "home": "الرئيسية",
     "about": "من نحن",
-    "contact": "تواصل معنا"
+    "contact": "تواصل معنا",
+    "Requests": "طلباتي"
   },
   "footer": {
     "name": "الخاتمة",
@@ -15,12 +16,22 @@
     "orgNationalId": "الرقم الوطني للمنشأة",
     "orgNationalIdPlaceholder": "ادخل الرقم الوطني للمنشأة",
     "passwordPlaceholder": "ادخل كلمة المرور",
-    "signup": "تسجيل",
     "login": "تسجيل الدخول",
     "password": "كلمة المرور",
     "noaccount": "ليس لديك حساب؟",
+    "account": "لديك حساب؟",
     "email": "البريد الالكتروني",
-    "forgotPassword": "نسيت كلمة المرور؟"
+    "emailPlaceholder": "ادخل بريدك الالكتروني",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "signup": "إنشاء حساب",
+    "fullName": "الاسم الكامل",
+    "fullNamePlaceholder": "ادخل اسمك الكامل",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+    "phoneNumber": "رقم الهاتف",
+    "phoneNumberPlaceholder": "ادخل رقم هاتفك",
+    "organizationName": "اسم المنشأة",
+    "organizationNamePlaceholder": "ادخل اسم منشأتك"
   },
   "buttons": {
     "save": "حفظ",
@@ -60,6 +71,7 @@
       "ResidenceDetails": "بيانات الإقامة",
       "PassportDetails": "بيانات جواز السفر",
       "edit": "تعديل البيانات",
+      "finish": "إنهاء التعديل",
       "service": "تقديم خدمة"
     },
     "organization": {
@@ -69,7 +81,10 @@
       "capital": "رأس مال الشركة",
       "title": "العنوان",
       "mail": "البريد الرسمي",
-      "signature": "اسم المفوض بالتوقيع"
+      "signature": "اسم المفوض بالتوقيع",
+      "edit": "تعديل البيانات",
+      "finish": "إنهاء التعديل",
+      "service": "تقديم خدمة"
     }
   },
   "reservation": {
@@ -81,21 +96,21 @@
       "activity": "بيانات النشاط"
     },
     "fields": {
-      "serviceType": "نوع الخدمة *",
-      "youthHouse": "بيت الشباب *",
-      "fromDate": "من تاريخ *",
-      "toDate": "إلى تاريخ *",
+      "serviceType": "نوع الخدمة",
+      "youthHouse": "بيت الشباب",
+      "fromDate": "من تاريخ",
+      "toDate": "إلى تاريخ",
       "durationDays": "المدة (أيام)",
-      "beneficiaries": "عدد المستفيدين *",
-      "facilityType": "المرفق *",
+      "beneficiaries": "عدد المرافقين",
+      "facilityType": "المرفق",
       "availableCapacity": "الطاقة الاستيعابية المتاحة",
-      "requiredRooms": "عدد الغرف المطلوبة *",
-      "requiredTents": "عدد الخيم المطلوبة *",
-      "requiredSuites": "عدد السويتات المطلوبة *",
-      "requiredChalets": "عدد الشاليهات المطلوبة *",
-      "activityPlan": "خطة النشاط *",
-      "groupLeader": "مسؤول المجموعة *",
-      "participantsInfo": "تصنيف المشاركين *"
+      "requiredRooms": "عدد الغرف المطلوبة",
+      "requiredTents": "عدد الخيم المطلوبة",
+      "requiredSuites": "عدد السويتات المطلوبة",
+      "requiredChalets": "عدد الشاليهات المطلوبة",
+      "activityPlan": "خطة النشاط",
+      "groupLeader": "مسؤول المجموعة",
+      "participantsInfo": "تصنيف المشاركين"
     },
     "placeholders": {
       "select": "اختر...",
@@ -109,7 +124,8 @@
     "options": {
       "service": {
         "accommodation": "إقامة",
-        "activity": "نشاط"
+        "activity": "نشاط",
+        "both": "إقامة ونشاط"
       },
       "house": {
         "petraWadiMusa": "بيت شباب البترا - البترا - وادي موسى",
@@ -134,6 +150,14 @@
       "youthHouse": {
         "title": "خدمة حجز وتأجير بيوت الشباب",
         "desc": "احجز إقامة في أحد بيوت الشباب أو استأجر مرفق لتنفيذ الأنشطة والفعاليات"
+      },
+      "camps": {
+        "title": "خدمة حجز وتأجير المخيمات الشبابية",
+        "desc": "احجز إقامة في أحد المخيمات الشبابية أو استأجر مرفق لتنفيذ الأنشطة والفعاليات"
+      },
+      "sportsComplex": {
+        "title": "خدمة حجز وتأجير المجمعات الرياضية",
+        "desc": "احجز مرافق في مجمع الرياضة لتدريبات أو مباريات أو فعاليات"
       },
       "other": {
         "title": "خدمات أخرى",

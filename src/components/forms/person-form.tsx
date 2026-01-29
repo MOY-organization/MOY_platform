@@ -16,7 +16,16 @@ export default function PersonForm({
 }: React.ComponentProps<"div">) {
   const { t } = useTranslation();
   const [checked, setChecked] = useState(false);
+  const [edit, setEdit] = useState(false);
   const navigate = useNavigate();
+
+  const handleEdit = () => {
+    setEdit(true);
+  };
+
+  const handleEditFinish = () => {
+    setEdit(false);
+  };
 
   const handeleServiceBtn = () => {
     navigate("/services");
@@ -82,11 +91,21 @@ export default function PersonForm({
                   <FieldLabel htmlFor="email">
                     {t("profile.individual.email")}
                   </FieldLabel>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="example@gmail.com"
-                  />
+                  {edit ? (
+                    <Input
+                      id="email"
+                      type="email"
+                      value=""
+                      placeholder="example@gmail.com"
+                      className="dark:bg-slate-700"
+                    />
+                  ) : (
+                    <Input
+                      id="email"
+                      readOnly
+                      className="bg-muted cursor-not-allowed"
+                    />
+                  )}
                 </Field>
 
                 {/* phone number */}
@@ -94,19 +113,37 @@ export default function PersonForm({
                   <FieldLabel htmlFor="phone">
                     {t("profile.individual.phone")}
                   </FieldLabel>
-                  <Input id="phone" type="tel" placeholder="077 123 4567" />
+                  {edit ? (
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="077 123 4567"
+                      className="dark:bg-slate-700"
+                    />
+                  ) : (
+                    <Input
+                      id="phone"
+                      readOnly
+                      className="bg-muted cursor-not-allowed"
+                    />
+                  )}
                 </Field>
               </FieldGroup>
 
               {/* 3rd row */}
               <FieldGroup>
                 <Field orientation="horizontal">
-                  <Checkbox
-                    id="member-checkbox"
-                    name="member"
-                    checked={checked}
-                    onCheckedChange={(value) => setChecked(value as boolean)}
-                  />
+                  {edit ? (
+                    <Checkbox
+                      id="member-checkbox"
+                      name="member"
+                      checked={checked}
+                      onCheckedChange={(value) => setChecked(value as boolean)}
+                      className="dark:bg-slate-700"
+                    />
+                  ) : (
+                    <Checkbox disabled />
+                  )}
                   <FieldLabel htmlFor="member-checkbox">
                     {t("profile.individual.membership")}
                   </FieldLabel>
@@ -124,6 +161,7 @@ export default function PersonForm({
                       value=""
                       placeholder="173543"
                       required
+                      className="dark:bg-slate-700"
                     />
                   ) : (
                     <Input
@@ -244,15 +282,23 @@ export default function PersonForm({
         </CardContent>
         {/* Buttons */}
         <CardFooter className="flex gap-5">
-          <Button className="px-5 sm:px-10">
-            {t("profile.individual.edit")}
-          </Button>
-          <Button
-            className="px-5 sm:px-10 bg-green-700 hover:bg-green-600"
-            onClick={handeleServiceBtn}
-          >
-            {t("profile.individual.service")}
-          </Button>
+          {edit ? (
+            <Button className="px-5 sm:px-10" onClick={handleEditFinish}>
+              {t("profile.individual.finish")}
+            </Button>
+          ) : (
+            <>
+              <Button className="px-5 sm:px-10" onClick={handleEdit}>
+                {t("profile.individual.edit")}
+              </Button>
+              <Button
+                className="px-5 sm:px-10 bg-green-700 hover:bg-green-600"
+                onClick={handeleServiceBtn}
+              >
+                {t("profile.individual.service")}
+              </Button>
+            </>
+          )}
         </CardFooter>
       </Card>
     </div>
